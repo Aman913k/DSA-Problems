@@ -20,11 +20,11 @@ public:
     int minCapability(vector<int>& nums, int k) {
         int beg=1, end=1e9+1;
         
-        while(beg<end){
+        while(beg<=end){
             int mid=(beg+end)/2;
             
             if(check(nums, k, mid)){
-                end=mid;
+                end=mid-1;
                 ans=min(ans,mid);
             }
             else beg=mid+1;
