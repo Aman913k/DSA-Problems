@@ -18,7 +18,7 @@ public:
     
     int ans=INT_MAX;    
     int minCapability(vector<int>& nums, int k) {
-        int beg=1, end=1e9+1;
+        int beg=1, end=1e9;
         
         while(beg<=end){
             int mid=(beg+end)/2;
