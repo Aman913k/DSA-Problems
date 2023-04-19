@@ -13,10 +13,10 @@ class Solution {
 public:
     void helper(TreeNode* root, int l, int r, int& ans){
         if(!root) return;
-        ans=max({l,r,ans}); 
              
         helper(root->left, 0, l+1, ans);
-        helper(root->right, r+1, 0, ans);  
+        helper(root->right, r+1, 0, ans);
+        ans=max({l,r,ans});
     }   
     
       
