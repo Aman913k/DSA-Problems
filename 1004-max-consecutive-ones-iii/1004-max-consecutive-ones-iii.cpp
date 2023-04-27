@@ -12,7 +12,7 @@ public:
             if(nums[r]==0) cnt0++;
             
             while(cnt0>k){ 
-                ans=max(ans, r-l+1);
+               // ans=max(ans, r-l+1);
                 if(nums[l]==0) cnt0--;
                 l++;         
             }
