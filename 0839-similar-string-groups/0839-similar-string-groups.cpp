@@ -10,19 +10,30 @@ public:
         return false; 
     }
     
-    void dfs(int node, vector<int>& vis, vector<int> adj[]){
+    void bfs(int node, vector<int> adj[], vector<int>& vis){
         vis[node]=1;
+        queue<int> q;
+        q.push(node);
+        
+        while(!q.empty()){
+            int node=q.front();
+            q.pop();
             
-        for(auto it: adj[node]){
-            if(!vis[it]) dfs(it, vis, adj); 
+            for(auto it: adj[node]){
+                if(!vis[it]){
+                    vis[it]=1;
+                    q.push(it);
+                }
+            }
         }
     }
     
+    
     int numSimilarGroups(vector<string>& strs) {
-        int n=strs.size();
-        
+        int n=strs.size(); 
         vector<int> adj[n];
-        
+        vector<int> vis(n, 0); 
+         
         for(int i=0; i<n-1; i++){
             for(int j=i+1; j<n; j++){
                 if(is_similar(strs[i], strs[j])){
@@ -32,14 +43,13 @@ public:
             }
         }
         
-        vector<int> vis(n, 0);     
         int ans=0;
         for(int i=0; i<n; i++){
             if(!vis[i]){
-                dfs(i, vis, adj);
+                bfs(i, adj, vis);     
                 ans++;
-            }
+            }     
         }
-        return ans;
+        return ans;    
     }
 };
