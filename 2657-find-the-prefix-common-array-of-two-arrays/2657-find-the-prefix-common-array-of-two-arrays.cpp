@@ -3,10 +3,7 @@ public:
     vector<int> findThePrefixCommonArray(vector<int>& A, vector<int>& B) {
         unordered_map<int,int> mp;
         int cnt=0;
-        if(A.size()==1){
-            if(A[0]==B[0]) return {1};
-            return {};  
-        }
+        
         vector<int> pref(A.size(), 0);
         mp[A[0]]++; 
         mp[B[0]]++;
