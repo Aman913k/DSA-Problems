@@ -23,18 +23,13 @@ public:
                 mp[B[i]]++;
                 pref[i]=cnt;
             }
-            else if(mp[A[i]]&&!mp[B[i]]){
+            else if((mp[A[i]]&&!mp[B[i]])||(!mp[A[i]]&&mp[B[i]])){
                 cnt+=1;
                 mp[A[i]]++;
                 mp[B[i]]++;
                 pref[i]=cnt;
             }
-            else if(!mp[A[i]]&&mp[B[i]]){
-                cnt+=1;
-                mp[A[i]]++;
-                mp[B[i]]++;
-                pref[i]=cnt;
-            }
+            
             else if(!mp[A[i]]&&!mp[B[i]]&&A[i]==B[i]){
                 cnt+=1;
                 mp[A[i]]++;
