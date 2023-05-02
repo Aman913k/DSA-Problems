@@ -14,17 +14,18 @@ class Solution
         vector<int> dist(V, 1e9);
         dist[S]=0;
         
-        queue<pair<int,int>> q;
-        q.push({S, 0});
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+
+        pq.push({S, 0});
         
-        while(!q.empty()){
-            int node=q.front().first;
-            int dis=q.front().second;  
-            q.pop(); 
+        while(!pq.empty()){
+            int node=pq.top().first;
+            int dis=pq.top().second;    
+            pq.pop(); 
              
             for(auto it: adj[node]){
                 if(dis+it[1]<dist[it[0]]){
-                    q.push({it[0], dis+it[1]});
+                    pq.push({it[0], dis+it[1]});
                     dist[it[0]]=dis+it[1];
                 }
             }
