@@ -22,7 +22,6 @@ public:
         
         for(int i=0; i<n; i++){
             if(col[i]==-1){
-                col[i]=0;
                 if(!dfs(graph,col,i,0)) return false;
             }
         }
