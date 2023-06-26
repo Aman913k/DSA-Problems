@@ -4,7 +4,6 @@ public:
         int n=nums.size();
         int prefSumEnd=0;
         int prefSum=0;
-        if(n==1) return 0;
         
         for(int i=0; i<n; i++) prefSumEnd+=nums[i];
         
