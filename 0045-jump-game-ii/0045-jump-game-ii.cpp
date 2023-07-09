@@ -7,14 +7,13 @@ public:
         if(indx>=n-1) return 0;
         if(dp[indx]!=1e4) return dp[indx];
  
-        
+        int ans=1e9;
         
         for(int i=1; i<=nums[indx]; i++){
-            dp[indx]=min(dp[indx], 1+helper(nums, i+indx ,dp));
+            ans=min(ans, 1+helper(nums, i+indx ,dp));
         }
-        
-    
-        return dp[indx];
+       
+        return dp[indx]=ans;
          
     }
     
