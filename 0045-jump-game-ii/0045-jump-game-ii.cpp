@@ -5,6 +5,8 @@ public:
         int n=nums.size();
         
         if(indx>=n-1) return 0;
+        if(indx==n-1) return 1;
+        
         if(dp[indx]!=1e4) return dp[indx];
  
         int ans=1e9;
