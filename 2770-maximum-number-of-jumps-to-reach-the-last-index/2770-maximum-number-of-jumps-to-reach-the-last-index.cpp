@@ -15,7 +15,7 @@ public:
         
         if(dp[indx][prev]!=-1) return dp[indx][prev];
         
-        int ans=INT_MIN, pick=INT_MIN, nonpick=INT_MIN;  
+        int pick=-1e9, nonpick=-1e9;  
         if(abs(nums[prev]-nums[indx])<=target) pick=1+helper(nums, target, indx, indx+1);
         nonpick=0+helper(nums, target, prev, indx+1);
         
