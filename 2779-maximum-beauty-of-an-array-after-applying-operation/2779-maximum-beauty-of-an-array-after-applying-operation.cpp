@@ -8,8 +8,8 @@ public:
         
         while(r<n){
             if(nums[r]-nums[l]>2*k) l++;
-            maxi=max(maxi, r-l+1);
             
+            else maxi=max(maxi, r-l+1);
             r++;
         }
         return maxi;    
