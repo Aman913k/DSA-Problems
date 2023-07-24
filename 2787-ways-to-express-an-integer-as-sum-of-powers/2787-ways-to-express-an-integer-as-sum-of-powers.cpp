@@ -15,11 +15,9 @@ public:
         int pick=helper(n-temp, x, num+1);
         int nonpick=helper(n, x, num+1);
         
-        return dp[n][num]=(pick%mod+nonpick%mod)%mod;  
-        
+        return dp[n][num]=(pick%mod+nonpick%mod)%mod;
+    
     }
-    
-    
     
     
     int numberOfWays(int n, int x) {
