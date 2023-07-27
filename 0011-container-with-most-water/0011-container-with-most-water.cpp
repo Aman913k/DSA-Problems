@@ -6,8 +6,8 @@ public:
         int maxi=INT_MIN;
         
         while(l<r){
-            int area=min(nums[l], nums[r]);
-            maxi=max(maxi, area*(r-l));
+            int height=min(nums[l], nums[r]);
+            maxi=max(maxi, height*(r-l));
             
             
             if(nums[l]<=nums[r]) l++;
