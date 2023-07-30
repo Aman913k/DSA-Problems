@@ -11,11 +11,11 @@ public:
             }
         }
         return indx;
-    }  
+    }
+    
+    
     
     int nextGreater(vector<int>& nums, int indx1){
-        int num=nums[indx1];
-        int mini=INT_MAX;
         int indx=-1; 
         
         for(int i=nums.size()-1; i>indx1; i--){
@@ -25,7 +25,8 @@ public:
             }  
         }
         return indx;
-    }  
+    }
+    
     
     
     void nextPermutation(vector<int>& nums) {
