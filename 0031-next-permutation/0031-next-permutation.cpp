@@ -13,20 +13,18 @@ public:
         return indx;
     }  
     
-    int nextGreater(vector<int>& nums, int maxiIndx){
-        int num=nums[maxiIndx];
+    int nextGreater(vector<int>& nums, int indx1){
+        int num=nums[indx1];
         int mini=INT_MAX;
         int indx=-1; 
         
-        for(int i=maxiIndx+1; i<nums.size(); i++){
-            if(nums[i]>num && nums[i]<=mini){
-                mini=nums[i];
+        for(int i=nums.size()-1; i>indx1; i--){
+            if(nums[i]>nums[indx1]){
                 indx=i;
+                break;
             }  
         }
-        
         return indx;
-       
     }  
     
     
@@ -40,10 +38,8 @@ public:
         else{
             swap(nums[indx1], nums[indx2]);
             reverse(nums.begin()+indx1+1, nums.end());
-        } 
+        }
         
-        
-        cout<<indx1<<" "<<indx2<<"   ";
-        
+        //cout<<indx1<<" "<<indx2<<"   ";  
     }
 };
