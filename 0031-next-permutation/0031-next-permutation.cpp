@@ -29,13 +29,12 @@ public:
     
     
     void nextPermutation(vector<int>& nums) {
-        int indx2=0;
-        int indx1=findBreak(nums);
-        if(indx1>=0) indx2=nextGreater(nums, indx1);
         
+        int indx1=findBreak(nums);
         if(indx1==-1) reverse(nums.begin(), nums.end());
         
         else{
+            int indx2=nextGreater(nums, indx1);
             swap(nums[indx1], nums[indx2]);
             reverse(nums.begin()+indx1+1, nums.end());
         }
