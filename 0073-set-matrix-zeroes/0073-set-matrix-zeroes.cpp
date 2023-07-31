@@ -3,7 +3,7 @@ public:
     void setZeroes(vector<vector<int>>& matrix) {
         int n=matrix.size(), m=matrix[0].size();  
         
-       // O(M+N)  --> TC      
+       // O(M+N)  --> SC      
         
         
         vector<int> row(m, -1);
