@@ -6,13 +6,13 @@ int helper(string& s1, string& s2, int n, int m, int indx1, int indx2){
     
     if(indx1==n){
         int sum=0;
-        for(int i=indx2; i<m; i++) sum+=int(s2[i]);
+        for(int i=indx2; i<m; i++) sum+=s2[i]-0;
         return sum;     
     }
     
     if(indx2==m){
         int sum=0;
-        for(int i=indx1; i<n; i++) sum+=int(s1[i]);
+        for(int i=indx1; i<n; i++) sum+=s1[i]-0;
         return sum;
     }
 
