@@ -5,22 +5,21 @@ public:
         
        // O(M+N)  --> SC      
         
-        
-        vector<int> row(m, -1);
-        vector<int> col(n, -1);
+        vector<int> col(m, -1);
+        vector<int> row(n, -1);
         
         for(int i=0; i<n; i++){
             for(int j=0; j<m; j++){
                 if(matrix[i][j]==0){
-                    row[j]=0;
-                    col[i]=0;
+                    row[i]=0;
+                    col[j]=0;
                 }
             }
         }
         
         for(int i=0; i<n; i++){
             for(int j=0; j<m; j++){
-                if(col[i]==0 || row[j]==0) matrix[i][j]=0; 
+                if(col[j]==0 || row[i]==0) matrix[i][j]=0; 
             }
         }
         
