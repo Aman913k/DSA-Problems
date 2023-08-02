@@ -1,7 +1,7 @@
 unordered_map<int, int> mp;
 class Solution {
 public:
-    void helper(vector<int>& nums, vector<int>& v, vector<vector<int>>& ans, int indx){
+    void helper(vector<int>& nums, vector<int>& v, vector<vector<int>>& ans){
         if(v.size()==nums.size()){
             ans.push_back(v);
             return;
@@ -11,7 +11,7 @@ public:
             if(!mp[nums[i]]){
                 v.push_back(nums[i]);
                 mp[nums[i]]++;
-                helper(nums, v, ans, i+1);
+                helper(nums, v, ans);
                 mp[nums[i]]--;
                 v.pop_back();
             }
@@ -30,7 +30,7 @@ public:
         vector<vector<int>> ans;
         vector<int> v;
         
-        helper(nums, v, ans, 0);
+        helper(nums, v, ans);
         return ans;
     }
 };
