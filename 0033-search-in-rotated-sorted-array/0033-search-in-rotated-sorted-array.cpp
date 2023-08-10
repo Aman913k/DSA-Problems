@@ -23,30 +23,32 @@ public:
         
         int l=0, r=n-1;
 
-        if(indx!=-1){
+        if(indx!=-1){    // Rotation hai   
             if(target<=nums[indx] && target>=nums[0]){
                 l=0;
-                r=indx; 
+                r=indx;
             }
-            
             else{
                 l=indx+1;
                 r=n-1;
-                
             }
         }
         
-        while(l<r){
-            int mid=(l+r)/2;
-            if(nums[mid]<target) l=mid+1;
-            else if(nums[mid]==target) return mid;     
-            else r=mid-1;
-        } 
         
-        cout<<indx;
-        if(nums[l]==target) return l;
-        else if(nums[n/2]==target) return n/2;  
-        return -1;
+        while(l<=r){
+            int mid=(l+r)/2;
+            if(nums[mid]==target) return mid;
+            else if(nums[mid]<target) l=mid+1;
+            else r=mid-1;
+        }
+        
+        
+        
+        
+        //cout<<indx;
+        // if(nums[l]==target) return l;
+        // else if(nums[n/2]==target) return n/2;  
+         return -1;
          
     }
 };
