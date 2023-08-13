@@ -9,10 +9,9 @@ public:
         for(int i=x; i<n; i++){
             st.insert(nums[i-x]); 
             auto it=st.upper_bound(nums[i]);
-            auto it1=st.upper_bound(nums[i]+1);
+
             if(it!=st.end()) mini=min(mini, abs(nums[i]-*it));
             if(it!=st.begin()) mini=min(mini, abs(nums[i]-*prev(it)));
-            
         }
         
         return mini;  
