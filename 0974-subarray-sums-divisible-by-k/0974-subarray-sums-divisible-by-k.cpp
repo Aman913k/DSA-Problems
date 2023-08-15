@@ -9,10 +9,11 @@ public:
         for(int i=0; i<nums.size(); i++){
             prefSum+=nums[i];
             
-            if(prefSum%k<0) cnt+=mp[(prefSum%k)+k]++;
-            else cnt+=mp[prefSum%k];
+            if(prefSum%k<0) cnt+=mp[(prefSum%k)+k];
+            else cnt+=mp[prefSum%k]; 
            
-            mp[prefSum%k]++;
+            if(prefSum%k<0) mp[(prefSum%k)+k]++;
+            else mp[prefSum%k]++;
         }
         
         return cnt;
