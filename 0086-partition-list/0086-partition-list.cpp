@@ -11,32 +11,30 @@
 class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
-        if(head==NULL) return head;
+        ListNode* lessThanX=new ListNode(0);
+        ListNode* moreThanX=new ListNode(0);
         
-        vector<int> v;
+        ListNode* headOfLess=lessThanX;
+        ListNode* headOfMore=moreThanX;
+        
+        
         ListNode* temp=head;
         
-        while(temp){
-            if(temp->val<x) v.push_back(temp->val);
-            temp=temp->next;
+        while(temp!=NULL){
+            if(temp->val<x){
+                lessThanX->next=temp;
+                lessThanX=lessThanX->next;
+            }
+            else{
+                moreThanX->next=temp;
+                moreThanX=moreThanX->next;
+            }
+            temp=temp->next;    
         }
+        moreThanX->next=NULL;
+        lessThanX->next=headOfMore->next;
         
-        temp=head;
-        while(temp){
-            if(temp->val>=x) v.push_back(temp->val);
-            temp=temp->next;
-        }
-        
-        ListNode* dummy=new ListNode(v[0]);
-        ListNode*dummyhead=dummy;
-        
-        for(int i=1; i<v.size(); i++){
-            ListNode* temp=new ListNode(v[i]);
-            dummy->next=temp;
-            dummy=temp;
-        }
-        dummy->next=NULL; 
-        return dummyhead;
+        return headOfLess->next;
         
     }
 };
