@@ -16,7 +16,6 @@ public:
                 
                 auto pos=st.find(nums[i-(k-1)]); 
                 st.erase(pos);
-                //cout<<nums[i-(k-1)]<<" ";
             }
         }
     
