@@ -1,8 +1,7 @@
 class Solution {
 public:
     int maximalNetworkRank(int n, vector<vector<int>>& roads) {
-        //vector<int> adj[n];
-        map<int, set<int>> adj; 
+        unordered_map<int, set<int>> adj; 
         
         int sz=roads.size();
         
