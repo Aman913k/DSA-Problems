@@ -8,7 +8,7 @@ public:
         for(int i=0; i<n; i++) mp[gS[i]].push_back(i); 
         
          
-        for(auto i: mp){
+        for(auto i: mp){              
             vector<int> temp=i.second;
             vector<int> v; 
             
@@ -16,7 +16,7 @@ public:
                 v.push_back(temp[j]);
                 
                 if(v.size()==i.first){
-                    ans.push_back(v);
+                    ans.push_back(v);  
                     v.clear();  
                 }
             }
