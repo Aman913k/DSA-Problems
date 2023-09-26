@@ -20,10 +20,8 @@ public:
                 else break;
             }
             
-            if(!seen[s[i]-'a']){
-                st.push(s[i]);
-                seen[s[i]-'a']=1;
-            }
+            st.push(s[i]);
+            seen[s[i]-'a']=1;
         
         }
         string ans="";
