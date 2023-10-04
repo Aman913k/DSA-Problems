@@ -1,10 +1,10 @@
 int N=1000001;
-vector<int> v;
+vector<int> v(N);
 class MyHashMap {
 public:
     MyHashMap() {
-        vector<int> temp(N,-1);
-        v=temp;
+        v.clear();
+        for(int i=0; i<N; i++) v[i]=-1; 
     }
     
     void put(int key, int value) {
