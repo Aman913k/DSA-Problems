@@ -1,28 +1,24 @@
 class Solution {
 public:
     int countCharacters(vector<string>& words, string chars) {
-        unordered_map<char,int> mp;
-        
-        for(auto ch: chars) mp[ch]++;
+        unordered_map<int,int> mp1, mp2;
+        for(auto i: chars){
+            mp1[i]++;
+            mp2[i]++;
+        }
         int sum=0;
         
         for(int i=0; i<words.size(); i++){
-            string s=words[i];
             int fg=0;
-            
-            unordered_map<char, int> mp2;
-            
-            for(auto ch: s){     
-                mp2[ch]++;       
-            }
-            
-            for(auto i: mp2){
-                if(mp[i.first]<i.second){
+            for(int j=0; j<words[i].size(); j++){
+                if(!mp1[words[i][j]]){
                     fg=1;
-                    break;     
+                    break;
                 }
-            }
-            if(fg==0) sum+=s.length();     
+                else mp1[words[i][j]]--;
+            } 
+            if(fg==0) sum+=words[i].size();
+            mp1=mp2;
         }
         return sum;
     }
