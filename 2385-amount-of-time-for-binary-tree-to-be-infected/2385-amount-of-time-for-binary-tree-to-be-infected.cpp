@@ -36,20 +36,19 @@ public:
         vis[start]=1; 
         
         int cnt=0;
-        
         while(!q.empty()){
-            int sz=q.size();
+            int sz=q.size();  
             while(sz--){
                 int frnt=q.front();
                 q.pop();
                 
                 for(auto it: adj[frnt]){
-                    if(adj[frnt].size()>0) {
+                    //if(adj[frnt].size()>0) {
                         if(!vis[it]){
                             vis[it]=1;
                             q.push(it);
                         }
-                    }
+                    //}
                 }
             }
             
