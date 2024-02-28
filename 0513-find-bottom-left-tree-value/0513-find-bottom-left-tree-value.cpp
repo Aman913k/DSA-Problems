@@ -19,7 +19,7 @@ public:
         if(root->left && !root->left->left && !root->left->right){
             if(height>maxi){
                 maxi=height;
-                ans=root->left->val;
+                ans=root->left->val;  
             }
         }
         
@@ -38,9 +38,7 @@ public:
     
     int findBottomLeftValue(TreeNode* root) {
         if(!root->left && !root->right) return root->val; 
-         
-        helper(root->left, 1);
-        helper(root->right, 1);
+        helper(root, 0);
         
         return ans;
     }
