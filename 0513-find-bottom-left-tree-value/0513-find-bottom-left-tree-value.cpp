@@ -15,22 +15,24 @@ public:
     int ans;
     void helper(TreeNode* root, int height){
         if(!root) return;
+        
         if(root->left && !root->left->left && !root->left->right){
             if(height>maxi){
                 maxi=height;
                 ans=root->left->val;
             }
         }
-        if(!root->left){
+        
+        else{
             if(height>maxi){
                 maxi=height;
                 ans=root->val;
             }
         }
         
+        
         helper(root->left, height+1); 
         helper(root->right, height+1);       
-        
     }
     
     
