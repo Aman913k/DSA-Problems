@@ -16,18 +16,10 @@ public:
     void helper(TreeNode* root, int height){
         if(!root) return;
         
-        if(root->left && !root->left->left && !root->left->right){
-            if(height>maxi){
-                maxi=height;
-                ans=root->left->val;  
-            }
-        }
-        
-        else{
-            if(height>maxi){
-                maxi=height;
-                ans=root->val;
-            }
+        if(height>maxi){
+            maxi=height;
+            if(root->left) ans=root->left->val;
+            else ans=root->val;
         }
         
         
