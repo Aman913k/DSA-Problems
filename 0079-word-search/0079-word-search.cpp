@@ -1,4 +1,4 @@
-bool dfs(vector<vector<char>>& board, string word, vector<vector<int>>& vis, int row, int col, int indx){
+bool dfs(vector<vector<char>>& board, string word, int row, int col, int indx){
     int n=board.size(), m=board[0].size();
     if(indx>=word.size()) return true; 
       
@@ -14,7 +14,7 @@ bool dfs(vector<vector<char>>& board, string word, vector<vector<int>>& vis, int
         int ncol=col+delcol[i];
         
         board[row][col]='$';
-        isOk=dfs(board, word, vis, nrow, ncol, indx+1)||isOk;  
+        isOk=dfs(board, word, nrow, ncol, indx+1)||isOk;  
     }
       
     board[row][col]=word[indx]; 
@@ -28,12 +28,11 @@ class Solution {
 public:
     bool exist(vector<vector<char>>& board, string word) {
         int n=board.size(), m=board[0].size();
-                  
-        vector<vector<int>> vis(n, vector<int>(m, 0));
+     
         
         for(int i=0; i<n; i++){
             for(int j=0; j<m; j++){  
-                if(dfs(board, word, vis, i, j, 0)) return true;
+                if(dfs(board, word, i, j, 0)) return true;
             }  
         }
         
