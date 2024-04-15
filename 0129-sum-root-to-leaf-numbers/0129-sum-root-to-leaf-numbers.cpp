@@ -11,18 +11,13 @@
  */
 
 
-void helper(TreeNode* root, int tot, int &ans){
+int helper(TreeNode* root, int tot){
     
-    if(!root) return;
+    if(!root) return 0;
     if(!root->left && !root->right){  
-        tot=tot*10+root->val;  
-        ans+=tot;
-    
-        tot/=10;
-        return;  
+        return tot=tot*10+root->val;   
     }
-    helper(root->left, tot*10+root->val, ans);
-    helper(root->right, tot*10+root->val, ans); 
+    return helper(root->left, tot*10+root->val)+helper(root->right, tot*10+root->val); 
 }
 
 
@@ -31,10 +26,8 @@ class Solution {
 public:
     int sumNumbers(TreeNode* root) {
         
-        int tot=0, ans=0;
-        if(!root) return NULL;
-        helper(root, tot, ans);
-        
-        return ans;
+        int tot=0;
+        return helper(root, tot);
+      
     }
 };
