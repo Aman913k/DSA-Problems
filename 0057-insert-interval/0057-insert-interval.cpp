@@ -3,15 +3,15 @@ public:
     vector<vector<int>> insert(vector<vector<int>>& intv, vector<int>& newIntv) {
         
         int n=intv.size(); 
-        vector<vector<int>> temp, ans;  
+        vector<vector<int>> temp, ans;
+        temp=intv;
         
-        for(int i=0; i<n; i++){
-            temp.push_back({intv[i][0], intv[i][1]});     
-        }
-        temp.push_back({newIntv[0], newIntv[1]});
-        sort(temp.begin(), temp.end());
+        auto it=lower_bound(temp.begin(), temp.end(), newIntv, [](const vector<int>& a, const vector<int>& b){
+            return a[0]<b[0];
+        });
         
-        
+        temp.insert(it, newIntv);
+
         int startIntv=temp[0][0], endIntv=temp[0][1];
         for(int i=1; i<n+1; i++){
             if(temp[i][0]<=endIntv){
