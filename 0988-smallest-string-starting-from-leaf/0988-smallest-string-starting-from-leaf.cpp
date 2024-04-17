@@ -21,7 +21,6 @@ void helper(TreeNode* root, string t, string& ans){
         if(ans=="") ans=rev;
         else ans=min(ans, rev);
         
-        t.pop_back(); 
         return; 
     }     
     helper(root->left, t+char(root->val+'a'), ans);
@@ -32,10 +31,8 @@ void helper(TreeNode* root, string t, string& ans){
 class Solution {
 public:
     string smallestFromLeaf(TreeNode* root) {
-      
         string t, ans;  
-        
-            
+
         helper(root, "", ans); 
         return ans;
     }
