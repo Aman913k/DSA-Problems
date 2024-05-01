@@ -1,26 +1,24 @@
 class Solution {
 public:
     string reversePrefix(string word, char ch) {
-        int n=word.size();
-        string s="";
-        int i=0;
-        
-        for(i=0; i<n; i++){
+        int fIndx=-1, n=word.size();
+        for(int i=0; i<n; i++){
             if(word[i]==ch){
-                s+=word[i];
-                break;     
+                fIndx=i;
+                break;
             }
-            else s+=word[i];
-        }
-        string ans="";
-        reverse(s.begin(), s.end());
-        ans=s;
-        cout<<ans;  
-        for(int k=i+1; k<n; k++){
-            ans+=word[k];
         }
         
-        if(i==n) return word;     
-        return ans;  
+        if(fIndx==-1) return word;
+        string t="";
+        for(int i=0; i<=fIndx; i++){
+            t+=word[i];
+        }
+        reverse(t.begin(), t.end());
+        for(int i=fIndx+1; i<n; i++){
+            t+=word[i];
+        }
+        return t; 
     }
+        
 };
