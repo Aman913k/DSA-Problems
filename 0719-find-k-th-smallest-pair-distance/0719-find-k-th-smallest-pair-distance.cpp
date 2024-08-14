@@ -2,8 +2,9 @@ class Solution {
 public:
     bool check(vector<int>& nums, int k, int mid){
         int tot=0;
+        int r=0; 
         for(int i=0; i<nums.size()-1; i++){
-            int l=i, r=0; 
+            int l=i; 
             while(r<nums.size() && nums[r]-nums[l]<=mid) r++;
             tot+=(r-l-1);
             if(tot>=k) return true;
