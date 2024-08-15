@@ -12,13 +12,11 @@ public:
                 mp[10]++;
             }
             else if(bills[i]==20){
-                if(mp.find(10)!=mp.end() && mp[10]>=1 && mp.find(5)!=mp.end() && mp[5]>=1){
+                if(mp[10]>=1 && mp.find(5)!=mp.end() && mp[5]>=1){
                     mp[10]--;
                     mp[5]--; 
                 }
-                else if(mp.find(5)!=mp.end() && mp[5]>=3){
-                    mp[5]-=3;
-                }
+                else if( mp[5]>=3) mp[5]-=3;  
                 else return false; 
             }
         }
