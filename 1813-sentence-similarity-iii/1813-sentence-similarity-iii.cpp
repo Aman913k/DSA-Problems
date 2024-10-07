@@ -30,7 +30,6 @@ public:
         int i=0, n=v1.size(), m=v2.size(), j1=n-1, j2=m-1; 
         while(i<m&&i<n && v1[i]==v2[i]) i++;
         while(j1>=i && j2>=i && v1[j1]==v2[j2]){
-            cout<<"Fsiufuns"<<endl;
             j1--;  
             j2--; 
         }
