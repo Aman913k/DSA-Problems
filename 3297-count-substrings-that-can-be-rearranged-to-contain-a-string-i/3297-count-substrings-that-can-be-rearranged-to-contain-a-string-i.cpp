@@ -2,27 +2,21 @@
 class Solution {
 public:
     long long validSubstringCount(string word1, string word2) {
-        map<char,int> mp,mp2;
+        map<char,int> mp;
         vector<int> Given(26);
         for(auto i: word2) Given[i-'a']++; 
-        // for(auto i: word2) mp2[i]++;
+
         
         ll cnt=0;  
         ll l=0, r=0;
         int n=word1.size();
-        // for(auto i: word2) mp1[i]++;
         
         ll ans=0;   
         while(r<n){
             mp[word1[r]]++;
         
             if(Given[word1[r]-'a']){
-                
-                if(mp[word1[r]]<=Given[word1[r]-'a']){
-                    cnt++;  
-        
-                }
-                
+                if(mp[word1[r]]<=Given[word1[r]-'a']) cnt++;  
             }
             
             while(cnt==word2.size()){
