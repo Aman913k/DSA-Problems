@@ -13,7 +13,7 @@ public:
             if(exp==')'){
                 string t;  
                 while(boole.top()!='('){
-                    t+=boole.top();
+                    t+=boole.top();  
                     boole.pop(); 
                 }
                 boole.pop();  
@@ -25,10 +25,14 @@ public:
                     else achieved=false;
                     task=opera.top(), opera.pop();
                     
-                    if(task=='|') for(auto i: t) if(i=='t') achieved=true;
-                    if(task=='&') for(auto i: t) if(i=='f') achieved=false;
+                    if(task=='|'){
+                        for(auto i: t) if(i=='t')  achieved=true;
+                    }
+                    else if(task=='&'){
+                        for(auto i: t) if(i=='f') achieved=false;
+                    }
                     
-                    if(task=='!'){
+                    else if(task=='!'){ 
                         if(t[0]=='f') achieved=true;
                         else achieved=false;
                      
