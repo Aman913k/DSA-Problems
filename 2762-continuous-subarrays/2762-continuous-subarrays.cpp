@@ -1,25 +1,25 @@
+#define ll long long 
 class Solution {
 public:
     long long continuousSubarrays(vector<int>& nums) {
-        int n=nums.size();
-        long long cnt=0; 
-        int l=0, r=0;
-        int maxi=0, mini=0;        
-          
-        multiset<int> st;  
+        int n=nums.size(); 
+        multiset<ll> st;
+        ll l=0, r=0;                
+        ll ans=0;  
         
         while(r<n){
             st.insert(nums[r]);
             
-            while(abs(*st.rbegin()-*st.begin())>2){
-                st.erase(st.find(nums[l]));  
+            while(!st.empty() && abs(*st.rbegin()-*st.begin())>2){
+                st.erase(st.find(nums[l]));
                 l++;  
-            }
+            }           
+             
+            ans+=(r-l+1);
+            r++; 
             
-            cnt+=(r-l+1);
-            r++;
         }
         
-        return cnt;  
+        return ans; 
     }
 };
